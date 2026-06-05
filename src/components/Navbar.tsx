@@ -1,6 +1,6 @@
 import React from 'react'
 import { usePersonalization } from '../context/PersonalizationContext'
-import { Music, ListMusic, PlusCircle, Sun, Moon, Search, Church } from 'lucide-react'
+import { ListMusic, PlusCircle, Sun, Moon, Search, Church } from 'lucide-react'
 
 interface NavbarProps {
   searchQuery: string
