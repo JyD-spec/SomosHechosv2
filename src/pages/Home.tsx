@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
-import { Song, ServiceListItem } from '../types'
+import type { Song, ServiceListItem } from '../types'
 import { Music, Plus, Edit, Trash2, ChevronRight, Loader2, Sparkles, Filter } from 'lucide-react'
 import confetti from 'canvas-confetti'
 

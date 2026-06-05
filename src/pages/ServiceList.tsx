@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
-import { ServiceListItem } from '../types'
+import type { ServiceListItem } from '../types'
 import { ArrowUp, ArrowDown, Trash2, Eye, EyeOff, Loader2, Music, AlertCircle } from 'lucide-react'
 import { ChordsViewer } from '../components/ChordsViewer'
 

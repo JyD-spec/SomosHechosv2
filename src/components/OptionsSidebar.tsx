@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { usePersonalization, ChordAlignment } from '../context/PersonalizationContext'
+import { usePersonalization } from '../context/PersonalizationContext'
+import type { ChordAlignment } from '../context/PersonalizationContext'
 import { Settings, X, AlignLeft, AlignCenter, AlignRight, Plus, Minus, Type } from 'lucide-react'
 
 export const OptionsSidebar: React.FC = () => {
