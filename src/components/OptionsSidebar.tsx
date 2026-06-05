@@ -33,7 +33,7 @@ export const OptionsSidebar: React.FC = () => {
       {/* Floating Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-40 p-4 rounded-full bg-purple-600 hover:bg-purple-700 text-white shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
+        className="fixed bottom-6 right-6 z-40 p-4 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-xl hover:scale-105 active:scale-95 transition-all duration-200"
         title="Personalizar visualización"
       >
         {isOpen ? <X className="w-6 h-6" /> : <Settings className="w-6 h-6 animate-spin-slow" />}
@@ -50,7 +50,7 @@ export const OptionsSidebar: React.FC = () => {
             {/* Header */}
             <div className="flex items-center justify-between pb-4 border-b border-gray-150 dark:border-gray-800">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                <Settings className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                <Settings className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                 Personalizar Vista
               </h3>
               <button
@@ -65,10 +65,10 @@ export const OptionsSidebar: React.FC = () => {
             <div className="py-6 border-b border-gray-150 dark:border-gray-800">
               <div className="flex items-center justify-between mb-2">
                 <label className="text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center gap-1.5">
-                  <Type className="w-4 h-4 text-purple-500" />
+                  <Type className="w-4 h-4 text-blue-500" />
                   Tamaño de letra
                 </label>
-                <span className="text-xs font-mono bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 px-2 py-0.5 rounded-full">
+                <span className="text-xs font-mono bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded-full">
                   {fontSize}px
                 </span>
               </div>
@@ -78,7 +78,7 @@ export const OptionsSidebar: React.FC = () => {
                 max="28"
                 value={fontSize}
                 onChange={e => setFontSize(parseInt(e.target.value))}
-                className="w-full h-2 bg-gray-200 dark:bg-gray-800 rounded-lg appearance-none cursor-pointer accent-purple-600"
+                className="w-full h-2 bg-gray-200 dark:bg-gray-800 rounded-lg appearance-none cursor-pointer accent-blue-600"
               />
               <div className="flex justify-between text-[10px] text-gray-400 mt-1">
                 <span>Pequeño</span>
@@ -98,7 +98,7 @@ export const OptionsSidebar: React.FC = () => {
                     onClick={() => setAlignChords(align.value)}
                     className={`flex flex-col items-center gap-1 p-2 rounded-lg text-xs font-medium border transition-all duration-200 ${
                       alignChords === align.value
-                        ? 'border-purple-600 dark:border-purple-400 bg-purple-50 dark:bg-purple-950/30 text-purple-600 dark:text-purple-400'
+                        ? 'border-blue-600 dark:border-blue-400 bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400'
                         : 'border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 text-gray-500 dark:text-gray-400'
                     }`}
                   >

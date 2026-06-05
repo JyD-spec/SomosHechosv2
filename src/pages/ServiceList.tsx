@@ -25,6 +25,12 @@ export const ServiceList: React.FC<ServiceListProps> = ({ onNavigate }) => {
 
       if (error) throw error
       setItems(data || [])
+      // Show all chords by default
+      const allVisible: { [key: number]: boolean } = {}
+      ;(data || []).forEach((item: ServiceListItem) => {
+        allVisible[item.id] = true
+      })
+      setVisibleChords(allVisible)
     } catch (err) {
       console.error('Error fetching service list:', err)
     } finally {
@@ -165,7 +171,7 @@ export const ServiceList: React.FC<ServiceListProps> = ({ onNavigate }) => {
       {/* List content */}
       {loading ? (
         <div className="flex flex-col items-center justify-center py-20 gap-3">
-          <Loader2 className="w-10 h-10 text-purple-600 dark:text-purple-400 animate-spin" />
+          <Loader2 className="w-10 h-10 text-blue-600 dark:text-blue-400 animate-spin" />
           <p className="text-sm text-gray-500 dark:text-gray-400">Cargando lista de servicio...</p>
         </div>
       ) : items.length > 0 ? (
@@ -183,13 +189,13 @@ export const ServiceList: React.FC<ServiceListProps> = ({ onNavigate }) => {
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   {/* Song Info */}
                   <div className="flex items-center gap-4">
-                    <span className="flex items-center justify-center w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 font-bold text-sm">
+                    <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 font-bold text-sm">
                       {item.posicion_id}
                     </span>
                     <div>
                       <h3
                         onClick={() => onNavigate(`#/view-song/${song.id}`)}
-                        className="text-lg font-bold text-gray-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-400 cursor-pointer m-0 transition-colors"
+                        className="text-lg font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer m-0 transition-colors"
                       >
                         {song.name}
                       </h3>
@@ -200,11 +206,11 @@ export const ServiceList: React.FC<ServiceListProps> = ({ onNavigate }) => {
                   {/* Options Panel */}
                   <div className="flex items-center gap-2 self-end sm:self-center">
                     {/* Move Controls */}
-                    <div className="flex items-center bg-gray-50 dark:bg-gray-850 p-1 rounded-xl border border-gray-200 dark:border-gray-800">
+                    <div className="flex items-center bg-gray-50 dark:bg-gray-800 p-1 rounded-xl border border-gray-200 dark:border-gray-700">
                       <button
                         disabled={index === 0}
                         onClick={() => handleMove(index, 'up')}
-                        className="p-1.5 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-white dark:hover:bg-gray-850 hover:text-purple-600 dark:hover:text-purple-400 disabled:opacity-30 disabled:hover:text-gray-500 transition-all"
+                        className="p-1.5 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-white dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 disabled:opacity-30 disabled:hover:text-gray-500 transition-all"
                         title="Subir de posición"
                       >
                         <ArrowUp className="w-4 h-4" />
@@ -212,7 +218,7 @@ export const ServiceList: React.FC<ServiceListProps> = ({ onNavigate }) => {
                       <button
                         disabled={index === items.length - 1}
                         onClick={() => handleMove(index, 'down')}
-                        className="p-1.5 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-white dark:hover:bg-gray-850 hover:text-purple-600 dark:hover:text-purple-400 disabled:opacity-30 disabled:hover:text-gray-500 transition-all"
+                        className="p-1.5 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-white dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 disabled:opacity-30 disabled:hover:text-gray-500 transition-all"
                         title="Bajar de posición"
                       >
                         <ArrowDown className="w-4 h-4" />
@@ -224,7 +230,7 @@ export const ServiceList: React.FC<ServiceListProps> = ({ onNavigate }) => {
                       onClick={() => toggleChords(item.id)}
                       className={`flex items-center gap-1 px-3 py-2 text-xs font-semibold rounded-xl transition-all ${
                         isChordsOpen
-                          ? 'bg-purple-100 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300'
+                          ? 'bg-blue-100 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300'
                           : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-150 dark:hover:bg-gray-750'
                       }`}
                     >
@@ -272,7 +278,7 @@ export const ServiceList: React.FC<ServiceListProps> = ({ onNavigate }) => {
           </p>
           <button
             onClick={() => onNavigate('#/')}
-            className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold shadow-lg shadow-purple-500/25 transition-all"
+            className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold shadow-lg shadow-blue-500/25 transition-all"
           >
             <Music className="w-4 h-4" />
             Explorar canciones

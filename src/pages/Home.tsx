@@ -132,7 +132,7 @@ export const Home: React.FC<HomeProps> = ({ searchQuery, onNavigate }) => {
   return (
     <div className="space-y-6">
       {/* Hero / Header Section */}
-      <div className="relative rounded-3xl bg-gradient-to-r from-purple-600 to-indigo-600 p-8 text-white shadow-xl overflow-hidden">
+      <div className="relative rounded-3xl bg-gradient-to-r from-blue-600 to-indigo-600 p-8 text-white shadow-xl overflow-hidden">
         <div className="absolute right-0 bottom-0 opacity-10 transform translate-x-1/4 translate-y-1/4">
           <Music className="w-96 h-96" />
         </div>
@@ -144,7 +144,7 @@ export const Home: React.FC<HomeProps> = ({ searchQuery, onNavigate }) => {
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight m-0 text-white">
             Hechos Comunidad Cristiana
           </h1>
-          <p className="text-purple-100 max-w-xl text-sm sm:text-base">
+          <p className="text-blue-100 max-w-xl text-sm sm:text-base">
             Administra los acordes y prepara los listados de alabanza y adoración de forma ágil y moderna.
           </p>
         </div>
@@ -163,7 +163,7 @@ export const Home: React.FC<HomeProps> = ({ searchQuery, onNavigate }) => {
               onClick={() => setSelectedType(type)}
               className={`flex-1 sm:flex-none px-4 py-1.5 rounded-md text-xs font-semibold transition-all ${
                 selectedType === type
-                  ? 'bg-white dark:bg-gray-700 text-purple-600 dark:text-purple-300 shadow-sm'
+                  ? 'bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-300 shadow-sm'
                   : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
               }`}
             >
@@ -177,14 +177,14 @@ export const Home: React.FC<HomeProps> = ({ searchQuery, onNavigate }) => {
       <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl overflow-hidden shadow-sm transition-colors duration-300">
         {loading ? (
           <div className="flex flex-col items-center justify-center py-20 gap-3">
-            <Loader2 className="w-10 h-10 text-purple-600 dark:text-purple-400 animate-spin" />
+            <Loader2 className="w-10 h-10 text-blue-600 dark:text-blue-400 animate-spin" />
             <p className="text-sm text-gray-500 dark:text-gray-400">Cargando repertorio...</p>
           </div>
         ) : filteredSongs.length > 0 ? (
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-850/50">
+                <tr className="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800">
                   <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Nombre</th>
                   <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Autor</th>
                   <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Tipo</th>
@@ -198,10 +198,10 @@ export const Home: React.FC<HomeProps> = ({ searchQuery, onNavigate }) => {
                     <tr
                       key={song.id}
                       onClick={() => onNavigate(`#/view-song/${song.id}`)}
-                      className="group hover:bg-purple-50/30 dark:hover:bg-purple-950/10 cursor-pointer transition-colors duration-200"
+                      className="group hover:bg-blue-50/30 dark:hover:bg-blue-950/10 cursor-pointer transition-colors duration-200"
                     >
                       <td className="px-6 py-4">
-                        <div className="font-semibold text-gray-950 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                        <div className="font-semibold text-gray-950 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                           {song.name}
                         </div>
                       </td>
@@ -250,7 +250,7 @@ export const Home: React.FC<HomeProps> = ({ searchQuery, onNavigate }) => {
                               <Trash2 className="w-4 h-4" />
                             )}
                           </button>
-                          <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-purple-500 group-hover:translate-x-1 transition-all ml-1" />
+                          <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-blue-500 group-hover:translate-x-1 transition-all ml-1" />
                         </div>
                       </td>
                     </tr>

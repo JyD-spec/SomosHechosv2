@@ -43,7 +43,7 @@ export const ViewSong: React.FC<ViewSongProps> = ({ songId, onNavigate }) => {
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center py-20 gap-3">
-        <Loader2 className="w-10 h-10 text-purple-600 dark:text-purple-400 animate-spin" />
+        <Loader2 className="w-10 h-10 text-blue-600 dark:text-blue-400 animate-spin" />
         <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Cargando canción...</p>
       </div>
     )
@@ -109,12 +109,12 @@ export const ViewSong: React.FC<ViewSongProps> = ({ songId, onNavigate }) => {
           
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-sm text-gray-500 dark:text-gray-400">
             <span className="flex items-center gap-1.5">
-              <User className="w-4 h-4 text-purple-500" />
+              <User className="w-4 h-4 text-blue-500" />
               <span>Autor: <strong className="text-gray-700 dark:text-gray-300 font-semibold">{song.author}</strong></span>
             </span>
             <span className="hidden sm:inline text-gray-300 dark:text-gray-700">•</span>
             <span className="flex items-center gap-1.5">
-              <Music className="w-4 h-4 text-purple-500" />
+              <Music className="w-4 h-4 text-blue-500" />
               <span>Agregada por: <strong className="text-gray-700 dark:text-gray-300 font-semibold">{song.added_by}</strong></span>
             </span>
           </div>

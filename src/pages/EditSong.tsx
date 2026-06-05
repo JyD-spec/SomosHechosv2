@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
-import { ArrowLeft, Save, Music, User, PlusCircle, Check, Loader2 } from 'lucide-react'
+import { ArrowLeft, Save, Music, User, PlusCircle, Check, Loader2, UserPlus, ListMusic } from 'lucide-react'
 
 interface EditSongProps {
   songId: string
@@ -97,7 +97,7 @@ export const EditSong: React.FC<EditSongProps> = ({ songId, onNavigate }) => {
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center py-20 gap-3">
-        <Loader2 className="w-10 h-10 text-purple-600 dark:text-purple-400 animate-spin" />
+        <Loader2 className="w-10 h-10 text-blue-600 dark:text-blue-400 animate-spin" />
         <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Cargando datos de la canción...</p>
       </div>
     )
@@ -146,7 +146,7 @@ export const EditSong: React.FC<EditSongProps> = ({ songId, onNavigate }) => {
             {/* Name Input */}
             <div className="space-y-2">
               <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-1.5">
-                <Music className="w-4 h-4 text-purple-500" />
+                <Music className="w-4 h-4 text-blue-500" />
                 Nombre de la Canción
               </label>
               <input
@@ -155,14 +155,14 @@ export const EditSong: React.FC<EditSongProps> = ({ songId, onNavigate }) => {
                 onChange={e => setName(e.target.value)}
                 placeholder="Ej: Cuan Grande es Él"
                 required
-                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-800 text-gray-950 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-sm transition-all"
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-800 text-gray-950 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm transition-all"
               />
             </div>
 
             {/* Author Input */}
             <div className="space-y-2">
               <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-1.5">
-                <User className="w-4 h-4 text-purple-500" />
+                <User className="w-4 h-4 text-blue-500" />
                 Autor
               </label>
               <input
@@ -171,7 +171,7 @@ export const EditSong: React.FC<EditSongProps> = ({ songId, onNavigate }) => {
                 onChange={e => setAuthor(e.target.value)}
                 placeholder="Ej: En Spirit y en Verdad"
                 required
-                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-800 text-gray-950 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-sm transition-all"
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-800 text-gray-950 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm transition-all"
               />
             </div>
           </div>
@@ -179,7 +179,7 @@ export const EditSong: React.FC<EditSongProps> = ({ songId, onNavigate }) => {
           {/* Chords Textarea */}
           <div className="space-y-2">
             <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-1.5">
-              <PlusCircle className="w-4 h-4 text-purple-500" />
+              <PlusCircle className="w-4 h-4 text-blue-500" />
               Letra con Acordes
             </label>
             <textarea
@@ -192,14 +192,15 @@ Am             F
 Cuan grande es Él."
               required
               rows={12}
-              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-800 text-gray-950 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-sm font-mono transition-all leading-relaxed whitespace-pre"
+              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-800 text-gray-950 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm font-mono transition-all leading-relaxed whitespace-pre"
             />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* Added By Input (Disabled) */}
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+              <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-1.5">
+                <UserPlus className="w-4 h-4 text-blue-500" />
                 Agregada por (No editable)
               </label>
               <input
@@ -212,13 +213,14 @@ Cuan grande es Él."
 
             {/* Type Select */}
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+              <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-1.5">
+                <ListMusic className="w-4 h-4 text-blue-500" />
                 Tipo de Canto
               </label>
               <select
                 value={type}
                 onChange={e => setType(e.target.value as 'Alabanza' | 'Adoración')}
-                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-800 text-gray-950 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-sm transition-all"
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-800 text-gray-950 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm transition-all"
               >
                 <option value="Alabanza">Alabanza</option>
                 <option value="Adoración">Adoración</option>
@@ -252,7 +254,7 @@ Cuan grande es Él."
             <button
               type="submit"
               disabled={submitting}
-              className="w-full sm:w-auto px-6 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-sm font-bold flex items-center justify-center gap-2 shadow-lg shadow-purple-500/25 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full sm:w-auto px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-bold flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {submitting ? (
                 <span>Guardando...</span>
